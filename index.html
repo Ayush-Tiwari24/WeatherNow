@@ -1,17 +1,421 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <style>
-        body{
-            background-size: 100rem;
-            background-image: url(https://wallpaperaccess.com/full/941788.jpg);
+      * {
+        box-sizing: border-box;
+
+        margin: 0;
+      }
+      body {
+        display: flex;
+        overflow-y: hidden;
+        background-image: url(https://wallpaperaccess.com/full/941788.jpg);
+        background-repeat: no-repeat;
+        background-position-y: -100px;
+      }
+      .nav {
+        width: clamp(180px, 20vw, 250px);
+        height: 100vh;
+        /* overflow-wrap: anywhere; */
+        border: 2px solid rgba(0, 0, 0, 0.237);
+        backdrop-filter: blur(2px);
+        box-shadow: 10px 0 40px;
+      }
+      .logo {
+        height: 10%;
+        width: 100%;
+        border-radius: 10px;
+      }
+      .Forecast,
+      .Location,
+      .Maps {
+        font-size: larger;
+        border: 2px solid rgba(245, 245, 220, 0);
+        font-family: monospace;
+        border-radius: 6px;
+        text-decoration: none;
+        color: antiquewhite;
+      }
+      .pages {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 50%;
+        gap: 50px;
+      }
+      .settings {
+        padding-bottom: 15px;
+        height: 40%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+      }
+      .settbtn {
+        font-size: larger;
+        font-family: monospace;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: antiquewhite;
+      }
+      input {
+        height: 10%;
+      }
+      a {
+        width: 100%;
+        /* text-align: center; */
+        padding-left: 3px;
+      }
+      a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        /* border: 2px solid rgba(245, 245, 220, 0.627); */
+      }
+      input::placeholder {
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        padding-left: 10px;
+      }
+      input:focus {
+        backdrop-filter: blur(2px);
+        color: white;
+        outline: none;
+        background-image: radial-gradient(
+          circle farthest-corner at 17.6% 50.7%,
+          rgba(25, 0, 184, 0.433) 0%,
+          rgba(0, 0, 0, 1) 90%
+        );
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        padding-top: 10px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .Search {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(182, 112, 20, 0);
+        backdrop-filter: blur(2px);
+        border: 3px solid rgba(222, 184, 135, 0.21);
+        height: 5vh;
+        width: 70%;
+        border-radius: 20px;
+        min-width: 105px;
+      }
+      .main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 300px 250px;
+        gap: 10px;
+        height: 70%;
+        width: 100%;
+      }
+      .hero {
+        grid-column: 1/3;
+        border: 2px solid rgba(245, 222, 179, 0.289);
+        /* height: ; */
+        border-radius: 15px;
+        display: flex;
+        /* flex-direction: column; */
+        padding-left: 20px;
+      }
+      .temp {
+        padding-top: 20px;
+        width: 50%;
+        height: 100%;
+      }
+      .city-name {
+        text-shadow:
+          2px 2px 50px,
+          -2px -2px 50px;
+      }
+      .cel {
+        color: antiquewhite;
+        font-size: clamp(4rem, 10vw, 8rem);
+        line-height: 1;
+      }
+      .super {
+        width: 50%;
+        height: 100%;
+        padding: 20px;
+      }
+      .updates {
+        display: flex;
+        justify-content: end;
+        /* gap: 8px; */
+        height: 20%;
+      }
+      .live-text {
+        color: antiquewhite;
+        font-family: monospace;
+      }
+      .updatecon {
+        backdrop-filter: blur(2px);
+        border-radius: 20px;
+        background-color: #2c436774;
+        border: 2px solid rgba(245, 222, 179, 0.364);
+        min-width: 128px;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .live-dot {
+        width: 10px;
+        height: 10px;
+        background: #35ab60;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
         }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .description {
+        
+            display:grid;
+            grid-template-columns:repeat(3, minmax(0,1fr));
+            gap:12px;
+            height:80%;
+            width:100%;
+
+            align-items: end;
+         }
+      .detail-card {
+        width:100%;
+        height:100%;
+        border-radius:10px;
+        border:2px solid rgba(245,222,179,.289);
+        min-width: 0px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        align-items:center;
+
+        padding:15px;
+      }
+      .forecast {
+        border-radius: 15px;
+        border: 2px solid rgba(245, 222, 179, 0.289);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+      }
+      .stats {
+        border-radius: 15px;
+        backdrop-filter: blur(2px);
+        border: 2px solid rgba(245, 222, 179, 0.289);
+      }
+      .day1 {
+        height: 90%;
+        min-width: 70px;
+        border-radius: 10px;
+        border: 1px solid;
+      }
+      #icon {
+        height: 20px;
+      }
+      .search-box {
+        width: 70%;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 0 15px;
+
+        border-radius: 25px;
+
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1px);
+      }
+
+      .search-box i {
+        color: white;
+        font-size: 18px;
+      }
+
+      .Search {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: white;
+        font-size: 16px;
+      }
+
+      .Search::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .settbtn i {
+        color: antiquewhite;
+        transition: transform 0.2s ease;
+      }
+      .settbtn i:hover {
+        color: #7991b5;
+        transform: rotate(70deg);
+      }
+
+      /* @media (max-width: 768px) {
+        .cel {
+          font-size: 6rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cel {
+          font-size: 6rem;
+        }
+      } */
+      .area {
+        color: antiquewhite;
+        font-size: 2.5cap;
+      }
+      .citybox {
+        height: 50%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+      .tempbox {
+        height: 50%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .weather-disc {
+        color: antiquewhite;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     </style>
-</head>
-<body>
-    <div class="nav"></div>
-</body>
+  </head>
+  <body>
+    <div class="nav">
+      <img src="logo.png" alt="" class="logo" />
+      <div class="pages">
+        <a href="#" class="Forecast">
+          <i class="fa-solid fa-cloud-sun"></i>
+          Forecast
+        </a>
+        <a href="#" class="Location"
+          ><i class="fa-solid fa-location-dot"></i> Location</a
+        >
+        <a href="#" class="Maps"><i class="fa-solid fa-map"></i> Maps</a>
+      </div>
+      <div class="settings">
+        <button class="settbtn">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search City..." class="Search" />
+      </div>
+      <div class="main">
+        <div class="hero">
+          <div class="temp">
+            <div class="citybox">
+              <h2 class="area">
+                <span class="city-name"></span>
+              </h2>
+              <h3 class="weather-disc"></h3>
+            </div>
+            <div class="tempbox"><h1 class="cel"></h1></div>
+          </div>
+
+          <div class="super">
+            <div class="updates">
+              <div class="updatecon">
+                <span class="live-dot"></span>
+                <span class="live-text">Live Updates</span>
+              </div>
+            </div>
+            <div class="description">
+                
+                <div class="detail-card">
+                    <p class="hi"></p>
+                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
+                    
+                </div>
+                
+                <div class="detail-card">
+                    <p class="low"></p>
+                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
+                    
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-droplet" style="color: #38BDF8;"></i>
+                  <p class="humidity"></p>
+                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="forecast">
+          <div class="day1"></div>
+          <div class="day1"></div>
+          <div class="day1"></div>
+          <div class="day1"></div>
+          <div class="day1"></div>
+        </div>
+        <div class="stats"></div>
+      </div>
+    </div>
+    <script>
+      const search = document.querySelector(".Search");
+      let city;
+      search.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          console.log(search.value);
+          city = search.value;
+          const apikey = "7c49ac95fc82605c796707d9c2a1af41";
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+          search.value = "";
+          fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+              const desc = data.weather[0].description;
+              document.querySelector(".weather-disc").textContent =
+              desc.charAt(0).toUpperCase() + desc.slice(1);
+              document.querySelector(".cel").textContent =
+              `${Math.round(data.main.temp)}°`;
+              document.querySelector(".city-name").innerHTML =
+              `<i class="fa-solid fa-location-dot"></i> ` + data.name;
+              document.querySelector(".humidity").textContent=`${data.main.humidity}`
+            });
+        }
+      });
+    </script>
+  </body>
 </html>
+>
