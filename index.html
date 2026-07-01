@@ -11,18 +11,18 @@
     <style>
       * {
         box-sizing: border-box;
-
         margin: 0;
       }
       body {
         display: flex;
+        height: 100vh;
         overflow-y: hidden;
         background-image: url(https://wallpaperaccess.com/full/941788.jpg);
         background-repeat: no-repeat;
         background-position-y: -100px;
       }
       .nav {
-        width: clamp(180px, 20vw, 250px);
+        width: clamp(100px, 20vw, 230px);
         height: 100vh;
         /* overflow-wrap: anywhere; */
         border: 2px solid rgba(0, 0, 0, 0.237);
@@ -98,7 +98,9 @@
         );
       }
       .container {
-        height: 100vh;
+        flex: 1;
+        /* overflow-x: hidden; */
+        height: 100%;
         width: 100%;
         padding-top: 10px;
         padding-left: 10px;
@@ -137,7 +139,7 @@
       }
       .temp {
         padding-top: 20px;
-        width: 50%;
+        width: 30%;
         height: 100%;
       }
       .city-name {
@@ -147,11 +149,11 @@
       }
       .cel {
         color: antiquewhite;
-        font-size: clamp(4rem, 10vw, 8rem);
+        font-size: clamp(1rem, 10vw, 8rem);
         line-height: 1;
       }
       .super {
-        width: 50%;
+        width: 70%;
         height: 100%;
         padding: 20px;
       }
@@ -194,47 +196,90 @@
         }
       }
       .description {
-        
-            display:grid;
-            grid-template-columns:repeat(3, minmax(0,1fr));
-            gap:12px;
-            height:80%;
-            width:100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        height: 80%;
+        width: 100%;
 
-            align-items: end;
-         }
+        align-items: end;
+      }
       .detail-card {
-        width:100%;
-        height:100%;
-        border-radius:10px;
-        border:2px solid rgba(245,222,179,.289);
+        /* width: 100%; */
+        height: 70%;
+        border-radius: 20px;
+        /* border: 2px solid rgba(245, 222, 179, 0.289); */
         min-width: 0px;
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-        align-items:center;
+        display: flex;
+        backdrop-filter: blur(4px);
+        box-shadow:
+          rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+          rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+          rgba(0, 0, 0, 0.06) 0px 2px 1px,
+          rgba(0, 0, 0, 0.09) 0px 4px 2px,
+          rgba(0, 0, 0, 0.09) 0px 8px 4px,
+          rgba(0, 0, 0, 0.09) 0px 16px 8px,
+          rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
-        padding:15px;
+        padding: 15px;
+      }
+      .forecastcon {
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        /* border: 2px solid rgba(245, 222, 179, 0.289); */
+        padding: 10px;
       }
       .forecast {
-        border-radius: 15px;
-        border: 2px solid rgba(245, 222, 179, 0.289);
         display: grid;
+        height: 90%;
         grid-template-columns: repeat(5, 1fr);
         align-items: center;
         gap: 10px;
-        padding: 10px;
       }
+      .forecast-text {
+        color: white;
+        font-family: monospace;
+        font-size: clamp(1rem, 2vw, 3rem);
+      }
+
       .stats {
         border-radius: 15px;
-        backdrop-filter: blur(2px);
-        border: 2px solid rgba(245, 222, 179, 0.289);
+        /* padding: 10px; */
+        /* backdrop-filter: blur(2px); */
+        /* border: 2px solid rgba(245, 222, 179, 0.289); */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .stats-box {
+        /* border: 1px solid rgba(245, 222, 179, 0.289); */
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow:
+          rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+          rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+          rgba(0, 0, 0, 0.06) 0px 2px 1px,
+          rgba(0, 0, 0, 0.09) 0px 4px 2px,
+          rgba(0, 0, 0, 0.09) 0px 8px 4px,
+          rgba(0, 0, 0, 0.09) 0px 16px 8px,
+          rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        flex-direction: column;
+        align-items: center;
       }
       .day1 {
         height: 90%;
-        min-width: 70px;
+        /* min-width: 70px; */
         border-radius: 10px;
-        border: 1px solid;
+        border: 1px solid rgba(245, 222, 179, 0.289);
       }
       #icon {
         height: 20px;
@@ -247,7 +292,7 @@
         align-items: center;
         gap: 10px;
 
-        padding: 0 15px;
+        padding: 15px;
 
         border-radius: 25px;
 
@@ -281,17 +326,6 @@
         transform: rotate(70deg);
       }
 
-      /* @media (max-width: 768px) {
-        .cel {
-          font-size: 6rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .cel {
-          font-size: 6rem;
-        }
-      } */
       .area {
         color: antiquewhite;
         font-size: 2.5cap;
@@ -310,11 +344,56 @@
         justify-content: center;
       }
       .weather-disc {
-        color: antiquewhite;
+        color: rgb(61, 124, 165);
+        font-family: monospace;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      .hi,
+      .low,
+      .humidity {
+        color: white;
+        font-size: clamp(0.1rem, 2vw, 2rem);
+      }
+      .high-icon {
+        color: #c64c1f;
+        font-size: 1rem;
+      }
+
+      .low-icon {
+        color: #60fa7a;
+        font-size: 1rem;
+      }
+      .fa-wind {
+        color: #93c5fd;
+      }
+      .fa-temperature-half {
+        color: #FBBF24;
+      }
+      .fa-eye {
+        color: #b4c8dc;
+      }
+      .fa-leaf {
+        color: #4ade80;
+      }
+      .dir,.feels,.quality,.visible{
+        color: white;
+      }
+      .wind,.like,.aqi,.visibility{
+        color: white;
+        font-size:  clamp(0.7rem, 2vw, 2rem);
+      }
+      @media (max-width: 1000px){
+    .main{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .hero{
+        grid-column: auto;
+    }
+}
     </style>
   </head>
   <body>
@@ -361,34 +440,104 @@
               </div>
             </div>
             <div class="description">
-                
-                <div class="detail-card">
-                    <p class="hi"></p>
-                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
-                    
-                </div>
-                
-                <div class="detail-card">
-                    <p class="low"></p>
-                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
-                    
-                </div>
-                <div class="detail-card">
-                    <i class="fa-solid fa-droplet" style="color: #38BDF8;"></i>
-                  <p class="humidity"></p>
-                  <span style="color: white;font-size: medium;font-size: clamp(0.1rem, 2vw, 1rem);">Humidity</span>
-                </div>
+              <div class="detail-card">
+                <i class="fa-solid fa-arrow-up high-icon"></i>
+                <p class="hi"></p>
+                <span
+                  style="
+                    color: white;
+                    font-size: medium;
+                    font-size: clamp(0.1rem, 2vw, 1.4rem);
+                  "
+                  >High</span
+                >
+              </div>
+
+              <div class="detail-card">
+                <i class="fa-solid fa-arrow-down low-icon"></i>
+                <p class="low"></p>
+
+                <span
+                  style="
+                    color: white;
+                    font-size: medium;
+                    font-size: clamp(0.1rem, 2vw, 1.4rem);
+                  "
+                  >Low</span
+                >
+              </div>
+              <div class="detail-card">
+                <i class="fa-solid fa-droplet" style="color: #38bdf8"></i>
+                <p class="humidity"></p>
+                <span
+                  style="
+                    color: white;
+                    font-size: medium;
+                    font-size: clamp(0.1rem, 2vw, 1.4rem);
+                  "
+                  >Humidity</span
+                >
+              </div>
             </div>
           </div>
         </div>
-        <div class="forecast">
-          <div class="day1"></div>
-          <div class="day1"></div>
-          <div class="day1"></div>
-          <div class="day1"></div>
-          <div class="day1"></div>
+        <div class="forecastcon">
+          <span class="forecast-text">5 Days Forecast</span>
+          <div class="forecast">
+            <div class="day1"></div>
+            <div class="day1"></div>
+            <div class="day1"></div>
+            <div class="day1"></div>
+            <div class="day1"></div>
+          </div>
         </div>
-        <div class="stats"></div>
+        <div class="stats">
+          <div class="stats-box">
+            <span
+              style="
+                color: rgba(255, 255, 255, 0.719);
+                font-size: medium;
+                font-size: clamp(0.rem, 2vw, 1.4rem);
+              "
+            >
+              <i class="fa-solid fa-wind"></i> Wind</span>
+            <p class="wind">44</p>
+            <p class="dir">NW</p>
+          </div>
+          <div class="stats-box">
+            <span
+              style="
+                color: rgba(255, 255, 255, 0.719);
+                font-size: medium;
+                font-size: clamp(0.rem, 2vw, 1.4rem);
+              "
+              ><i class="fa-solid fa-temperature-half"></i></i> Feels Like</span>
+            <p class="like">2</p>
+            <p class="feels"></p>
+          </div>
+          <div class="stats-box">
+            <span
+              style="
+                color: rgba(255, 255, 255, 0.719);
+                font-size: medium;
+                font-size: clamp(0.rem, 2vw, 1.4rem);
+              "
+              ><i class="fa-solid fa-leaf"></i> AQI</span>
+            <p class="aqi">39</p>
+            <p class="quality"></p>
+          </div>
+          <div class="stats-box">
+            <span
+              style="
+                color: rgba(255, 255, 255, 0.719);
+                font-size: medium;
+                font-size: clamp(0.rem, 2vw, 1.4rem);
+              "
+              ><i class="fa-solid fa-eye"></i> Visibility</span>
+            <p class="visibility">22</p>
+            <p class="visible">clear</p>
+          </div>
+        </div>
       </div>
     </div>
     <script>
@@ -404,14 +553,64 @@
           fetch(url)
             .then((response) => response.json())
             .then((data) => {
+              const lon=data.coord.lon;
+              const lat=data.coord.lat;
+              const aqiurl=`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apikey}`;
+              if(data.cod!=200){
+                alert("City not found")
+              }
+              fetch(aqiurl)
+                .then((response)=> response.json())
+                .then((aqiData)=>{
+                  const aqi = aqiData.list[0].main.aqi;
+                  console.log(aqiData)
+                  document.querySelector(".aqi").textContent = aqi;
+                  const qualities = [
+                        "",
+                        "Good",
+                        "Fair",
+                        "Moderate",
+                        "Poor",
+                        "Very Poor"
+                      ];
+
+                  document.querySelector(".quality").textContent =
+                    qualities[aqi];
+                });
               const desc = data.weather[0].description;
               document.querySelector(".weather-disc").textContent =
-              desc.charAt(0).toUpperCase() + desc.slice(1);
+                desc.charAt(0).toUpperCase() + desc.slice(1);
+
               document.querySelector(".cel").textContent =
-              `${Math.round(data.main.temp)}°`;
+                `${Math.round(data.main.temp)}°`;
+
               document.querySelector(".city-name").innerHTML =
-              `<i class="fa-solid fa-location-dot"></i> ` + data.name;
-              document.querySelector(".humidity").textContent=`${data.main.humidity}`
+                `<i class="fa-solid fa-location-dot"></i> ` + data.name;
+
+              document.querySelector(".hi").textContent =
+                `${Math.round(data.main.temp_max)}°`;
+
+              document.querySelector(".low").textContent =
+                `${Math.round(data.main.temp_min)}°`;
+
+              document.querySelector(".humidity").textContent =
+                `${data.main.humidity}%`;
+
+              document.querySelector(".wind").textContent =
+                `${data.wind.speed}m/s`;
+
+              document.querySelector(".like").textContent =
+                `${Math.round(data.main.feels_like)}°`;
+
+              document.querySelector(".aqi").textContent =
+                `${data.main.humidity}%`;
+
+              document.querySelector(".visibility").textContent =
+                `${(data.visibility / 1000).toFixed(1)} km`;
+              console.log(data)
+              // console.log(data.main.temp_max)
+              // console.log(data.main.temp_min)
+              //   aqiData.list[0].main.aqi;
             });
         }
       });
