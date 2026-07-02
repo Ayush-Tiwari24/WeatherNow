@@ -7,13 +7,15 @@ body {
   display: flex;
   height: 100vh;
   overflow-y: hidden;
-  background-image: url(https://wallpaperaccess.com/full/941788.jpg);
+  overflow-x: auto;
+  background-image: url('https://wallpaperaccess.com/full/941788.jpg');
   background-repeat: no-repeat;
-  background-position-y: -100px;
+  background-size: cover;
+  background-position: center;
 }
 
 .nav {
-  width: clamp(100px, 20vw, 230px);
+  width: clamp(80px, 20vw, 230px);
   height: 100vh;
   /* overflow-wrap: anywhere; */
   border: 2px solid rgba(0, 0, 0, 0.237);
@@ -106,6 +108,7 @@ input:focus {
   width: 100%;
   padding-top: 10px;
   padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,10 +173,26 @@ input:focus {
 .updates {
   display: flex;
   justify-content: end;
-  /* gap: 8px; */
+  gap: 8px;
   height: 20%;
-}
 
+}
+.time{
+  border: 2px solid rgba(245, 222, 179, 0.364);
+  /* padding:2px; */
+  border-radius: 20px;
+  background-color: #2c436774;
+  height: 70%;
+  display: flex;
+  min-width: 128px;
+  justify-content: center;
+  align-items: center;
+}
+.timecon{
+  color: antiquewhite;
+  font-family: monospace;
+
+}
 .live-text {
   color: antiquewhite;
   font-family: monospace;
@@ -185,11 +204,13 @@ input:focus {
   background-color: #2c436774;
   border: 2px solid rgba(245, 222, 179, 0.364);
   min-width: 128px;
-  height: 60%;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .live-dot {
@@ -455,5 +476,21 @@ input:focus {
 
   .hero {
     grid-column: auto;
+  }
+}
+@media (max-width:521px){
+  .nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: auto;
+    
+  }
+  
+  .nav-text{
+    display: none;
+  }
+  .logo{
+    display: none;
   }
 }
