@@ -28,6 +28,9 @@ body {
   width: 100%;
   border-radius: 10px;
 }
+.logoo{
+  display: none;
+}
 
 .Forecast,
 .Location,
@@ -500,7 +503,12 @@ input:focus {
     width: auto;
     
   }
-  
+  .logoo{
+    padding-bottom: 20px;
+    display: unset;
+    height: 80px;
+    width: 60px;
+  }
   .nav-text{
     display: none;
   }
