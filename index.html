@@ -1,109 +1,117 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeatherNow</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="nav"><img src="logoo.png" alt="" class="logoo"><img src="logo.png" alt="" class="logo" />
-      <div class="pages"><a href="index.html" class="Forecast"><i class="fa-solid fa-cloud-sun" style="color: orange;"></i> <span class="nav-text">Forecast</span></a>
-        <a href="location.html" class="Location"><i class="fa-solid fa-location-dot" style="color: rgb(62, 145, 177);"></i> <span class="nav-text">Location</span></a>
-        
-        <a href="map.html" class="Maps"><i class="fa-solid fa-map" style="color: rgb(181, 140, 66);"></i> <span class="nav-text">Maps</span></a>
-      </div>
-      <div class="settings"><button class="settbtn"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings </span></button></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherNow</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="nav"><img src="logoo.png" alt="" class="logoo"><img src="logo.png" alt="" class="logo" />
+    <div class="pages"><a href="index.html" class="Forecast"><i class="fa-solid fa-cloud-sun"
+          style="color: orange;"></i> <span class="nav-text">Forecast</span></a>
+      <a href="location.html" class="Location"><i class="fa-solid fa-location-dot"
+          style="color: rgb(62, 145, 177);"></i> <span class="nav-text">Location</span></a>
+
+      <a href="map.html" class="Maps"><i class="fa-solid fa-map" style="color: rgb(181, 140, 66);"></i> <span
+          class="nav-text">Maps</span></a>
     </div>
-    <div class="container">
-      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search City..." class="Search" /></div>
-      <div class="main">
-        <div class="hero">
-          <div class="temp">
-            <div class="citybox">
-              <h2 class="area"><span class="city-name"></span></h2>
-              <h3 class="weather-disc"></h3>
-            </div>
-            <div class="tempbox">
-              <h1 class="cel"></h1>
-            </div>
+    <div class="settings"><button class="settbtn"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings
+        </span></button></div>
+  </div>
+  <div class="container">
+    <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search City..."
+        class="Search" /></div>
+    <div class="main">
+      <div class="hero">
+        <div class="temp">
+          <div class="citybox">
+            <h2 class="area"><span class="city-name"></span></h2>
+            <h3 class="weather-disc"></h3>
           </div>
-          <div class="super">
-            <div class="updates">
-              <div class="time"><span class="timecon"></span></div>
-              <div class="updatecon"><span class="live-dot"></span><span class="live-text">Live Updates</span></div>
-            </div>
-            <div class="description">
-              <div class="detail-card"><i class="fa-solid fa-arrow-up high-icon"></i>
-                <p class="hi"></p><span style="
+          <div class="tempbox">
+            <h1 class="cel"></h1>
+          </div>
+        </div>
+        <div class="super">
+          <div class="updates">
+            <div class="time"><span class="timecon"></span></div>
+            <div class="updatecon"><span class="live-dot"></span><span class="live-text">Live Updates</span></div>
+          </div>
+          <div class="description">
+            <div class="detail-card"><i class="fa-solid fa-arrow-up high-icon"></i>
+              <p class="hi"></p><span style="
                     color: white;
                     font-size: medium;
                     font-size: clamp(0.1rem, 2vw, 1.4rem);
                   ">High</span>
-              </div>
-              <div class="detail-card"><i class="fa-solid fa-arrow-down low-icon"></i>
-                <p class="low"></p><span style="
+            </div>
+            <div class="detail-card"><i class="fa-solid fa-arrow-down low-icon"></i>
+              <p class="low"></p><span style="
                     color: white;
                     font-size: medium;
                     font-size: clamp(0.1rem, 2vw, 1.4rem);
                   ">Low</span>
-              </div>
-              <div class="detail-card"><i class="fa-solid fa-droplet" style="color: #38bdf8"></i>
-                <p class="humidity"></p><span style="
+            </div>
+            <div class="detail-card"><i class="fa-solid fa-droplet" style="color: #38bdf8"></i>
+              <p class="humidity"></p><span style="
                     color: white;
                     font-size: medium;
                     font-size: clamp(0.1rem, 2vw, 1.4rem);
                   ">Humidity</span>
-              </div>
             </div>
           </div>
         </div>
-        <div class="forecastcon"><span class="forecast-text">5 Days Forecast</span>
-          <div class="forecast">
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-          </div>
+      </div>
+      <div class="forecastcon"><span class="forecast-text">5 Days Forecast</span>
+        <div class="forecast">
+          <div class="days"></div>
+          <div class="days"></div>
+          <div class="days"></div>
+          <div class="days"></div>
+          <div class="days"></div>
         </div>
-        <div class="stats">
-          <div class="stats-box"><span style="
+      </div>
+      <div class="stats">
+        <div class="stats-box"><span style="
                 color: rgba(255, 255, 255, 0.719);
                 font-size: medium;
                 font-size: clamp(0.rem, 2vw, 1.4rem);
               "><i class="fa-solid fa-wind"></i> Wind</span>
-            <p class="wind"></p>
-            <p class="dir"></p>
-          </div>
-          <div class="stats-box"><span style="
+          <p class="wind"></p>
+          <p class="dir"></p>
+        </div>
+        <div class="stats-box"><span style="
                 color: rgba(255, 255, 255, 0.719);
                 font-size: medium;
                 font-size: clamp(0.rem, 2vw, 1.4rem);
                 "><i class="fa-solid fa-temperature-half"></i></i> Feels Like</span>
-            <p class="like"></p>
-            <p class="feels"></p>
-          </div>
-          <div class="stats-box"><span style="
+          <p class="like"></p>
+          <p class="feels"></p>
+        </div>
+        <div class="stats-box"><span style="
                 color: rgba(255, 255, 255, 0.719);
                 font-size: medium;
                 font-size: clamp(0.rem, 2vw, 1.4rem);
               "><i class="fa-solid fa-leaf"></i> AQI</span>
-            <p class="aqi"></p>
-            <p class="quality"></p>
-          </div>
-          <div class="stats-box"><span style="
+          <p class="aqi"></p>
+          <p class="quality"></p>
+        </div>
+        <div class="stats-box"><span style="
                 color: rgba(255, 255, 255, 0.719);
                 font-size: medium;
                 font-size: clamp(0.rem, 2vw, 1.4rem);
               "><i class="fa-solid fa-eye"></i> Visibility</span>
-            <p class="visibility"></p>
-            <p class="visible"></p>
-          </div>
+          <p class="visibility"></p>
+          <p class="visible"></p>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
