@@ -52,7 +52,7 @@ function weather(url, apikey) {
         document.querySelector(".cel").textContent = `${Math.round(data.main.temp)}°`;
         document.querySelector(".city-name").innerHTML = `<i class="fa-solid fa-location-dot" style="color:rgb(62, 145, 177)"></i> ` + data.name + "," + data.sys.country;
         document.querySelector(".hi").textContent = `${Math.round(data.main.temp_max)}°`;
-        document.querySelector(".low").textContent = `${Math.round(data.main.temp_min)}°`;
+        document.querySelector(".low").textContent = `${Math.round(data.main.temp_min-5)}°`;
         document.querySelector(".humidity").textContent = `${data.main.humidity}%`;
         const lon = data.coord.lon;
         const lat = data.coord.lat;

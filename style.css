@@ -17,6 +17,7 @@ body {
   width: clamp(80px, 20vw, 230px);
   height: 100vh;
   border: 2px solid rgba(0, 0, 0, 0.237);
+  border-radius: 15px;
   backdrop-filter: blur(2px);
   box-shadow: 10px 0 40px;
   flex-shrink: 0;
@@ -461,11 +462,11 @@ input:focus {
   font-size: clamp(0.7rem, 2vw, 2rem);
 }
 
-@media (max-width: 431px) {
+@media (max-width: 790px) {
   .container{
     overflow-x: hidden;
     overflow-y: auto;
-    width: auto;
+    /* width: auto; */
     height: auto;
   }
   .main {
