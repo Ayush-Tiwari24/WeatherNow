@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherNow | Location</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="location.css">
+</head>
+
+<body>
+
+<div class="nav">
+
+    <img src="logoo.png" class="logoo">
+    <img src="logo.png" class="logo">
+
+    <div class="pages">
+
+        <a href="index.html" class="Forecast">
+            <i class="fa-solid fa-cloud-sun" style="color:orange"></i>
+            <span class="nav-text">Forecast</span>
+        </a>
+
+        <a href="location.html" class="Location">
+            <i class="fa-solid fa-location-dot" style="color:#56c0ff"></i>
+            <span class="nav-text">Location</span>
+        </a>
+
+        <a href="map.html" class="Maps">
+            <i class="fa-solid fa-map" style="color:#b68c42"></i>
+            <span class="nav-text">Maps</span>
+        </a>
+
+    </div>
+
+    <div class="settings">
+        <button class="settbtn">
+            <i class="fa-solid fa-gear"></i>
+            <span class="nav-text">Settings</span>
+        </button>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="page-title">
+        <h1><i class="fa-solid fa-location-crosshairs"></i> Current Location</h1>
+    </div>
+
+    <div class="main">
+
+        <div class="map-card">
+
+            <iframe
+            id="map"
+            src=""
+            loading="lazy">
+            </iframe>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="box">
+                <span class="title">City</span>
+                <h2 class="city">Loading...</h2>
+            </div>
+
+            <div class="box">
+                <span class="title">Country</span>
+                <h2 class="country">--</h2>
+            </div>
+
+            <div class="box">
+                <span class="title">Latitude</span>
+                <h2 class="lat">--</h2>
+            </div>
+
+            <div class="box">
+                <span class="title">Longitude</span>
+                <h2 class="lon">--</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="location.js"></script>
+
+</body>
+</html>
