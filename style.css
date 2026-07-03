@@ -16,7 +16,6 @@ body {
 .nav {
   width: clamp(80px, 20vw, 230px);
   height: 100vh;
-  /* overflow-wrap: anywhere; */
   border: 2px solid rgba(0, 0, 0, 0.237);
   backdrop-filter: blur(2px);
   box-shadow: 10px 0 40px;
@@ -75,14 +74,12 @@ input {
 
 a {
   width: 100%;
-  /* text-align: center; */
   padding-left: 3px;
 }
 
 a:hover {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  /* border: 2px solid rgba(245, 245, 220, 0.627); */
 }
 
 input::placeholder {
@@ -142,10 +139,8 @@ input:focus {
 .hero {
   grid-column: 1/3;
   border: 2px solid rgba(245, 222, 179, 0.09);
-  /* height: ; */
   border-radius: 15px;
   display: flex;
-  /* flex-direction: column; */
   padding-left: 20px;
 }
 
@@ -245,10 +240,8 @@ input:focus {
 }
 
 .detail-card {
-  /* width: 100%; */
   height: 70%;
   border-radius: 20px;
-  /* border: 2px solid rgba(245, 222, 179, 0.289); */
   min-width: 0px;
   display: flex;
   backdrop-filter: blur(4px);
@@ -300,7 +293,6 @@ input:focus {
 }
 
 .stats-box {
-  /* border: 1px solid rgba(245, 222, 179, 0.289); */
   border-radius: 10px;
   backdrop-filter: blur(4px);
   padding: 10px;
@@ -321,14 +313,12 @@ input:focus {
 
 .days {
   height: 90%;
-  /* min-width: 70px; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(2px);
-  /* border: 1px solid rgba(245, 222, 179, 0.289); */
   padding: 10px;
   box-shadow:
     rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,

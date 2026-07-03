@@ -5,7 +5,6 @@ let city;
 
 function getWindDirection(degree) {
     const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-    // Divide by 45 degrees, round it, and wrap it within the array length
     const index = Math.round(degree / 45) % 8;
     return directions[index];
 }
@@ -84,7 +83,6 @@ function weather(url, apikey) {
         const forecasturl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
         fetch(forecasturl).then((response) => response.json()).then((forecastdata) => {
             const dailyforecast = forecastdata.list.filter(item => item.dt_txt.includes("12:00:00"))
-            // const time=
             const daycards = document.querySelectorAll(".days")
             dailyforecast.forEach((day, index) => {
                 const date = new Date(day.dt_txt);

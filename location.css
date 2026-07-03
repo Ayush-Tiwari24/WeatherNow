@@ -69,24 +69,28 @@ body {
   border: none;
   color: antiquewhite;
 }
-
+.settbtn i {
+  color: antiquewhite;
+  transition: transform 0.2s ease;
+}
+.settbtn i:hover {
+  color: #7991b5;
+  transform: rotate(70deg);
+}
 input {
   height: 10%;
 }
 
 a {
   width: 100%;
-  /* text-align: center; */
   padding-left: 3px;
 }
 
 a:hover {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  /* border: 2px solid rgba(245, 245, 220, 0.627); */
 }
 
-/* ---------- MAIN ---------- */
 
 .container {
   flex: 1;
